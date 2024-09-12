@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description"
+		  content="Wide Scope Large Multimodal Model Framework for CXR Interpretation">
+	<meta name="keywords" content="multimodal chatbot">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <meta property="og:image" content="./static/images/wolf.png" /> -->
+	<meta property="og:title" content="WoLF" />
+	<meta property="og:description"
+		  content="" />
+	<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+	<title>WoLF</title>
+
+	<link rel="stylesheet"
+		  href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+	<link rel="stylesheet"
+		  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet"
+		  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+	<link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" href="./static/css/index.css">
+	<link rel="icon" href="./static/images/wolf.png">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<script src="static/js/script.js" defer></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script defer
+			src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+	<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.16.0/gradio.js"></script>
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Swiper.js JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script type="text/x-mathjax-config">
+
+		MathJax.Hub.Config({
+		
+		  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+		
+		});
+		
+		</script>
+		
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+</head>
+
+<body>
+	<section class="hero">
+		<div class="hero-body">
+			<div class="container is-max-desktop">
+				<div class="columns is-centered">
+					<div class="column has-text-centered">
+						<h1 class="title is-1 publication-title" style="color:#6fb8fb;">WoLF</h1>
+						<h3 class="title is-2 publication-title">Wide Scope Large Multimodal Model Framework for CXR Interpretation</h3>
+						<!-- <h5 class="subtitle is-5 publication-awards">arXiv 2024</h5> -->
+						<div class="is-size-5 publication-authors">
+							<span class="author-block">
+								<a href="" style="color:#f68946;font-weight:normal;">Anonymous Authors</a>
+							</span>
+						</div>
+
+						<!-- <div><a href="https://github.com/research-wolf/wolf"><img
+									 src='./static/images/wolf.png' width="100"></a></div> -->
+
+						<div class="column has-text-centered">
+							<div class="publication-links">
+								<span class="link-block">
+									<a href="https://github.com/research-wolf/wolf"
+									   target="_blank"
+									   class="external-link button is-normal is-rounded is-dark">
+										<span class="icon">
+											<i class="fab fa-github"></i>
+										</span>
+										<span>Code</span>
+									</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<hr>
+
+                <!-- Results. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-six-fifths">
+                    <h2 class="title is-3"> Abstract</h2>
+                        <br><div class="columns is-centered has-text-centered">
+                            <div class="column is-six-fifths">
+                                <p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+                                    In this study, we investigate the enhancement in Chest X-ray (CXR) interpretation performance by
+                                    Large Multimodal Models (LMMs) through the incorporation of patient- centered health records and the
+                                    use of structured reports categorized by organs. Specifically, we propose a methodology to integrate
+                                    patients’ electronic health records (EHR) into model training from a data composition perspective
+                                    and categorize free-form radiology reports by the corresponding organ. During training, we introduce
+                                    a modified masked self-attention mechanism that improves the model’s capacity to discern
+                                    relationships between specific organs and their associated abnormalities. This approach, referred to
+                                    as the Wide Scope Large Multimodal Model Framework (WoLF), is supported by extensive empirical
+                                    evidence and analysis, demonstrating significant advancements in the performance of downstream
+                                    tasks. Our findings provide a promising direction for future research in radiology by enhancing the
+                                    interpretative capabilities of LMMs.
+                                </p>
+                            </div>
+                        </div>
+                    </p>
+                    <hr>
+                                    
+                    <div class="container mt-5">
+                        <div class="columns is-centered has-text-centered">
+                            <div class="column is-six-fifths">
+                                <h2 class="title is-3"> Preview of Our Work</h2>
+                            </div>
+                        </div>
+                        <div class="form-row" style="justify-content: center;">
+                            <b>Due to licensing issues and bioethical protection laws of <a href="https://physionet.org">physionet.org</a>, the platform that owns
+                            MIMIC-CXR, we are unable to fully disclose the original CXR images. As an alternative, we apply a
+                            <u>Gaussian filtering</u> method to the original images and then share them along with our qualitative
+                            results. It is not possible to align the visual findings of the images with the report generated by
+                            our model. However, it is straightforward to compare a <u>ground truth report with our model's report.</u> 
+                            <br>The same color indicates sentences that refer to the same organ.</b>
+                            <div class="form-group col-md-1">
+                                <div class="col-md-2" style="width: 100%"><label>&nbsp;</label></div>
+                                <div class="btn-group" role="group"
+                                     aria-label="Left and Right Controller"
+                                     style="width: 100%;align-items: center;justify-content: center;flex-direction: row;display: flex;">
+                                    <button type="button" class="form-control btn btn-primary"
+                                            id="prev-question"><i
+                                           class="material-icons">keyboard_arrow_left</i></button>
+                                    <button type="button" class="form-control btn btn-primary"
+                                            id="next-question"><i
+                                           class="material-icons">keyboard_arrow_right</i></button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Question Card -->
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <div class="card mb-4"
+                                 style="width: 60%; display: flex; align-items: center;">
+                                <div class="card-body" id="selected-question"
+                                     style="display: flex; height: 68vh;">
+                                    <div class="chat-history">
+                                        <!-- Add your chat messages here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-six-fifths">
+                    <p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+                        <section class="section">
+				<div class="columns is-centered has-text-centered">
+                </div>
+                <div class="column is-six-fifths">
+                        <p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+                            <br><b>Comparison of model responses across various VQA.</b> We posed questions about the CXR diagnosis, along with the patient’s medical history records (left: ICU stay history, middle: personal medication, right: surgical history), to our model as well as other models. <span style="background-color: #FEF172;">Yellow</span> indicates EHR itself or part of responses incorporating EHR appropriately. <span style="background-color: #CC99CC;">Purple</span> highlights responses that either omit EHR content or misuse it.</p>
+                </div>
+			</section>
+                <!-- Results. -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-six-fifths">
+                        <center><img src="./static/images/fig_dashboard_encrypted.jpg"
+                            alt="Evaluation with AI"
+                            style="width: 1000px; height: auto;"></center>
+                            <p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+                    </div>
+                </div>
+        </section>
+        <hr>
+		<div class="container is-max-desktop">
+			<div class="hero-body">
+				<div class="columns is-centered has-text-centered">
+					<div class="column is-six-fifths">
+						<h2 class="title is-3">Our Contibutions</h2>
+					</div>
+				</div>
+				<!-- <h4 class="subtitle has-text-centered"> -->
+				<!-- <center><img src='./static/images/tesear-non-blur.png' width="1500"></center> -->
+				<p style="font-size:110%"><b>(1) Data fusion: HIT (Health-specific Instruction Tuning)</b> <p style="font-size:100%; margin-left:40px;">
+					Designed for the interplay between health-specific patient records and visual representations of CXR. This enables our model to learn visual features from CXR images while incorporating patient medical records for enhanced accuracy.
+				</p></p>
+				<p style="font-size:110%"><b>(2) Data reformulation: ASK (Anatomy-specific Knowledge Decoupling)</b> <p style="font-size:100%; margin-left:40px">
+					Rearrange a raw report into a specific categorized-sentences that describes the relationship between the organ and its abnormality.
+				</p></p>
+				<p style="font-size:110%"><b>(3) Training: AMA (Anatomy-localizing Masked Attention)</b> <p style="font-size:100%; margin-left:40px">
+					Allows the learning of relationships between each organ and its abnormalities in CXR.
+				</p></p>
+				<p style="font-size:110%"><b>(4) State-of-the-art Performance!</b> <p style="font-size:100%; margin-left:40px">
+					Achieve state-of-the-art performance in the Report Generation and VQA task on widely used public datasets.
+				</p></p>
+				<!-- </h4> -->
+			</div>
+		</div>
+	</section>
+
+	<hr>
+
+	<section class="section">
+		<!-- Results. -->
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-3"> Data fusion & Reformulation (HIT & ASK)</h2>
+			</div>
+		</div>
+		<center><img src="./static/images/data_reformulation_encrypted.jpg"
+			alt="Dataset Creation"
+			style="width: 1200px; height: auto;"></center>
+			<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+				<br><b>An overview of data fusion and reformulation.</b> (a) Health-Specific Instruction Tuning: HIT generates a set of conversational dialogues between USER and ASSISTANT to merge EHR and CXR-VQA knowledge. <span style="background-color: #8CE1F9;">Cyan</span> and <span style="background-color: #FFB266;">orange</span> relate to EHR and CXR visual findings, respectively. (b) We arrange original reports into a categorized sentence of anatomy-specific structures through leveraging of a knowledge graph. Each color indicates the report content for the corresponding anatomical structures.</p>
+		<!-- </div> -->
+		<!--/ Results. -->
+	</section>
+
+	<hr>
+
+	<section class="section">
+		<!-- Results. -->
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-3"> 2-Stage Training</h2>
+			</div>
+		</div>
+		<center><img src="./static/images/training_encrypted.jpg"
+			alt="Training"
+			style="width: 1200px; height: auto;"></center>
+			<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+				<br><b>An overview of our training process.</b> (a) In stage 1, the model is trained on $D_\text{HIT}$, with the vision encoder frozen while the visual adapter and LLM remain trainable. At this stage, we follow the standard auto-regressive training approach. (b) Stage 2 continuously utilizes	the model from stage 1. The training data for this stage is $D_\text{ASK}$, and only the LLM is trainable, while the vision encoder and adapter retain the weights learned in stage 1 (frozen). The important point is that in stage 2, standard masked attention is replaced with our anatomical masked attention (AMA) approach, noted by <span style="background-color: #FFEC51;">yellow</span> box. AMA blocks the attention between categorized sentences for different organs in masked self-attention.
+			</p>
+		<!-- </div> -->
+		<!--/ Results. -->
+	</section>
+
+	<hr>
+
+	<section class="section">
+		<!-- Results. -->
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-3"> Quantitative Results</h2>
+				<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+					Results evaluated using traditional metrics.
+				</p>
+			</div>
+		</div>
+
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-size-4"> Report Generation</h2>
+				<center><img src="./static/images/table_reportgen.jpg"
+					alt="Evaluation with AI"
+					style="width: 1200px; height: auto;"></center>
+					<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+						<br><b>Comparison results of report generation performances against previous methods.</b> We conducted evaluations on the MIMIC-CXR and IU-Xray datasets using natural language generation (NLG) metrics and clinical efficacy (CE) metrics. To ensure a fair comparison, we directly cite results from the published literature. Missing values in the table are due to those evaluations not being performed in other studies.
+					</p>
+			</div>
+		</div>
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-size-4">Visual Question Answering</h2>
+				<center><img src="./static/images/table_VQA.jpg"
+					alt="Evaluation with AI"
+					style="width: 420px; height: auto;"></center>
+					<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+						<br><b>Accuracy (%) of evaluation in MIMIC-CXR-VQA test split.</b> We classified questions into open and closed types, measuring accuracy on reproducible code. “Both” represents the average accuracy of these types. All questions are based on MIMIC-CXR images, targeting visually observable medical findings in chest X-rays.
+					</p>
+					<br>
+				<center><img src="./static/images/table_VQA_topicwise.jpg"
+					alt="Evaluation with AI"
+					style="width: 600px; height: auto;"></center>
+					<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+						<br><b>Topic-wise accuracy (%) for the CXR-VQA task.</b> We utilize the ELIXR framework to evaluate VQA performance on MIMIC-CXR.
+					</p>
+			</div>
+		</div>
+
+		<!-- </div> -->
+		<!--/ Results. -->
+	</section>
+
+	<hr>
+
+    <section class="section">
+        <!-- Results. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-six-fifths">
+                <h2 class="title is-3"> More Qualitative Results</h2>
+            </div>
+        </div>
+        <p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+            Results evaluated using traditional metrics.
+        </p>
+        <br>
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-six-fifths">
+                <h2 class="title is-size-4"> Report Generation</h2>
+                <center><img src="./static/images/fig_qual_reportgen.jpg"
+                         alt="Evaluation with AI"
+                         style="width: 1200px; height: auto;"></center>
+                <p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+                    <br><b>Qualitative result of WoLF on report generation.</b> The same highlighted
+                    color corresponds to the findings of the same organ.
+                </p>
+            </div>
+        </div>
+    
+        </p>
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-six-fifths">
+                <h2 class="title is-size-4">Visual Question Answering</h2>
+                <center><img src="./static/images/fig_qualitative_encrypted.jpg"
+                         alt="Evaluation with AI"
+                         style="width: 1200px; height: auto;"></center>
+                <p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+                    <br>The qualitative results provided in response to questions about the patient’s
+                    medical records and CXR findings were noted. WoLF can correlate the patient’s
+                    medical records with the abnormalities observed in the CXR.
+                </p>
+            </div>
+        </div>
+    
+        <!-- </div> -->
+        <!--/ Results. -->
+    </section>
+    <hr>
+	<section class="section">
+		<!-- Results. -->
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-3"> Analyses</h2>
+			</div>
+		</div>
+		<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+			We present ablation studies to identify the key factors contributing to our enhancements.
+		</p>
+		<br>
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-size-4"> Modular Ablation</h2>
+				<center><img src="./static/images/fig_modular_ablation.jpg"
+					alt="Evaluation with AI"
+					style="width: 600px; height: auto;"></center>
+					<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+						<br><b>Modular ablation study in report generation.</b> This encompasses all feasible combinations. The bar plot is arranged in ascending order based on METEOR scores. The experiments were conducted on the MIMIC-CXR dataset. Baseline refers to a model that is fine-tuned solely on the reference dataset using our basic architecture, without incorporating EHR data or applying any additional methods.
+					</p>
+			</div>
+		</div>
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-size-4"> Modular Ablation</h2>
+				<center><img src="./static/images/table_EHR_ablation.jpg"
+					alt="Evaluation with AI"
+					style="width: 500px; height: auto;"></center>
+					<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+						<br><b>Ablation study on the impact of EHR on report generation performance.</b> Simple-concat involves directly concatenating unmodified EHR data into the training dataset. No EHR refers to experiments where the model is trained without any EHR data. Data-fusion uses our HIT method for integrating EHR data into the model.
+					</p>
+			</div>
+		</div>
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-size-4">Ablation of EHR</h2>
+				<center><img src="./static/images/fig_EHRablation.png"
+					alt="Evaluation with AI"
+					style="width: 1200px; height: auto;"></center>
+					<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+						<br><b>Ablation study on data fusion strategy using direct scoring.</b> The blue, red and green lines represent the final WoLF model, the WoLF model trained without data fusion strategy (simple concatenating EHRs) and baseline (trained w/o EHRs), respectively. We employed direct scoring as the AI-driven evaluation to assess across five-categories referred by LLM-Eval.
+					</p>
+			</div>
+		</div>
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-size-4">Win-rate Results</h2>
+				<center><img src="./static/images/fig_wirate.png"
+					alt="Evaluation with AI"
+					style="width: 600px; height: auto;"></center>
+					<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+						<br><b>Win-rate results of WoLF versus other models</b> (LM: LLaVA-Med, LC: LLM-CXR, XG: XrayGPT, BG: BiomedGPT, and RG: R2GenGPT). The <span style="background-color: #5189EF; color: #FFFFFF">blue</span> bar shows the rate at which evaluators judged WoLF’s response as better, while the <span style="background-color: #CA5050; color: #FFFFFF">red</span> bar shows the opposite. The black error bars indicate the win-rate values reported by different evaluators.
+					</p>
+			</div>
+		</div>
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-size-4"> Evaluation Protocol: Win-rate</h2>
+				<center><img src="./static/images/figure_AIEval_protocol_winrate_encrypted.jpg"
+					alt="Evaluation with AI"
+					style="width: 1200px; height: auto;"></center>
+					<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+						<br><b>Illustration of win-rate evaluation protocol.</b>
+					</p>
+			</div>
+		</div>
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-six-fifths">
+				<h2 class="title is-size-4"> Evaluation Protocol: Direct Scoring</h2>
+				<center><img src="./static/images/figure_AIEval_protocol_direct_encrypted.jpg"
+					alt="Evaluation with AI"
+					style="width: 1200px; height: auto;"></center>
+					<p style="font-size:110%; margin-left:80px; margin-right:80px; text-align: center;">
+						<br><b>Illustration of direct scoring evaluation protocol.</b>
+					</p>
+			</div>
+		</div>
+
+
+
+		<!-- </div> -->
+		<!--/ Results. -->
+	</section>
+
+	<hr>
+
+	<!-- <hr> -->
+    <!-- <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column is-full-width">
+                    <div class="content has-text-justified">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="https://media.worksout.co.kr/uploads/live/H224SSSESN13319001/H224SSSESN13319001-1.jpg"
+                                    alt="Slide 1">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://media.worksout.co.kr/uploads/live/H224SSSESN13319001/H224SSSESN13319001-3.jpg"
+                                    alt="Slide 2">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://media.worksout.co.kr/uploads/live/H224SSSESN13319001/H224SSSESN13319001-4.jpg"
+                                    alt="Slide 3">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+	<!-- <hr> -->
+	<section class="section" id="Acknowledgement">
+		<div class="container is-max-desktop content">
+			<h2 class="title">Acknowledgement</h2>
+			<p>
+				This website is adapted from <a
+				   href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+					Commons Attribution-ShareAlike 4.0 International License</a>.
+			</p>
+			<p>
+			</p>
+		</div>
+	</section>
+
+</body>
+
+</html>
